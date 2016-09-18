@@ -3,15 +3,15 @@
 
     angular.module("LunchCheckerApp", [])
         .controller("LunchCheckerCtrl", ['$scope', function ($scope) {
+            $scope.dishes = "";
 
             $scope.checkLunch = function () {
-                if ($scope.dishes) {
+                var dishesNumber = $scope.dishes.split(',').filter(function (dish) {
+                    return dish.trim().length > 0;
+                }).length;
+
+                if (dishesNumber > 0) {
                     $scope.status = 'OK';
-
-                    var dishesNumber = $scope.dishes.split(',').filter(function (dish) {
-                        return dish.trim().length > 0;
-                    }).length;
-
                     $scope.result = dishesNumber <= 3 ? "Enjoy!" : "Too much!";
                 } else {
                     $scope.status = 'ERROR';
