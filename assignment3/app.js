@@ -38,7 +38,7 @@
             if (!searchTerm) {
                 return $q.reject();
             }
-            
+
             return $http
                 .get(ApiBasePath + '/menu_items.json')
                 .then(function(response) {
@@ -51,7 +51,7 @@
 
     function foundItemsDirective() {
         return {
-            restrict: 'A',
+            restrict: 'E',
             templateUrl: 'templates/foundItems.html',
             scope: {
                 foundItems: '<',
