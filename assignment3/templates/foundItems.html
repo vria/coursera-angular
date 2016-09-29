@@ -1,9 +1,26 @@
-<ul>
-	<li class="found-item" ng-repeat="(index, item) in foundItemsCtrl.foundItems">
-		<strong ng-bind="item.name"></strong> :
-		<span ng-bind="item.description"></span>
-		<button ng-click="foundItemsCtrl.onRemove({index: index})" class="btn btn-danger btn-sm">
-			Don't want this one!
-		</button>
-	</li>
-</ul>
+<table class="table" ng-show="foundItemsCtrl.foundItems.length > 0" ng-cloak>
+	<thead>
+		<tr>
+			<th>Short name</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="(index, item) in foundItemsCtrl.foundItems">
+			<td ng-bind="item.short_name"></td>
+			<td ng-bind="item.name"></td>
+			<td ng-bind="item.description"></td>
+			<td>
+				<button ng-click="foundItemsCtrl.onRemove({index: index})" class="btn btn-danger btn-sm">
+					Don't want this one!
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<div ng-show="foundItemsCtrl.foundItems.length == 0" class="alert alert-danger" role="alert">
+	<span class="glyphicon glyphicon-exclamation-sign"></span>
+	Nothing found
+</div>

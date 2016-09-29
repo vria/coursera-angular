@@ -15,28 +15,37 @@
             MenuSearchService.getMatchedMenuItems(narrowItDown.searchTerm)
             .then(function(foundItems) {
                 narrowItDown.found = foundItems;
+            }, function() {
+                narrowItDown.found = [];
             });
         }
 
         narrowItDown.removeItem = function(index) {
             narrowItDown.found.splice(index, 1);
         }
+
+        narrowItDown.clear = function() {
+            narrowItDown.searchTerm = "";
+            delete narrowItDown.found;
+        }
     }
 
-    MenuSearchService.$inject = ['$http', 'ApiBasePath'];
-    function MenuSearchService($http, ApiBasePath) {
+    MenuSearchService.$inject = ['$http', '$q', 'ApiBasePath'];
+    function MenuSearchService($http, $q, ApiBasePath) {
         var service = this;
 
         service.getMatchedMenuItems = function(searchTerm) {
-            return $http.get(ApiBasePath + '/menu_items.json')
+            if (!searchTerm) {
+                return $q.reject();
+            }
+            
+            return $http
+                .get(ApiBasePath + '/menu_items.json')
                 .then(function(response) {
                     return response.data.menu_items.filter(function(menuItem) {
                         return menuItem.description.indexOf(searchTerm) >= 0;
                     });
-                })
-                .catch(function (error) {
-                    console.error(error);
-                })
+                });
         }
     }
 
