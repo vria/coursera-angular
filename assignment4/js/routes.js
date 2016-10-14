@@ -27,7 +27,7 @@
                 controllerAs: 'itemsCtrl',
                 resolve: {
                     response: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
-                        return MenuDataService.getItemsForCategory($stateParams.category);
+                        return MenuDataService.getItemsForCategory($stateParams.categoryName);
                     }]
                 }
             });
