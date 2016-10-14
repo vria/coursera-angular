@@ -1,0 +1,6 @@
+<div ng-repeat="category in $ctrl.categories">
+    <a ui-sref="items({categoryName: category.short_name})" class="btn btn-link">
+        <span ng-bind="category.name"></span>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>

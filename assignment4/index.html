@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Restaurant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <script src="js/data.module.js"></script>
+    <script src="js/menudata.service.js"></script>
+    <script src="js/menuapp.module.js"></script>
+    <script src="js/categories.component.js"></script>
+    <script src="js/items.component.js"></script>
+    <script src="js/routes.js"></script>
+</head>
+<body ng-app="MenuApp">
+
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<div id="info-container" class="container">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <div>
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <a href="https://github.com/vria/coursera-angular/tree/master/assignment4" target="_blank">
+                    You are welcome to check the code here
+                </a>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <a href="https://github.com/jhu-ep-coursera/fullstack-course5/blob/master/assignments/assignment4/Assignment-4.md" target="_blank">
+                    Assignment Instructions
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

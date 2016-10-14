@@ -1,0 +1,18 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Short name</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in $ctrl.items">
+        <td ng-bind="item.id"></td>
+        <td ng-bind="item.short_name"></td>
+        <td ng-bind="item.name"></td>
+        <td ng-bind="item.description"></td>
+    </tr>
+    </tbody>
+</table>
