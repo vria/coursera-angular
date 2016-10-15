@@ -1,10 +1,7 @@
 (function(){
     "use strict";
 
-    angular.module('MenuApp').config(RoutesConfig);
-
-    RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-    RoutesConfig = function($stateProvider, $urlRouterProvider) {
+    angular.module('MenuApp').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
 
         $stateProvider
@@ -34,6 +31,5 @@
                     }]
                 }
             });
-    };
-
+    }]);
 })();
