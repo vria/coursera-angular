@@ -1,0 +1,59 @@
+<div class="container">
+<h2 class="text-center">Sign up</h2>
+
+<form name="form" novalidate>
+    <div class="form-group" ng-class="{'has-error': form.firstName.$invalid && (form.firstName.$touched || form.$submitted), 'has-success': form.firstName.$valid && (form.firstName.$touched || form.$submitted)}">
+        <label for="sign-up-first-name" class="control-label">First name</label>
+        <input name="firstName" ng-model="signUpCtrl.signUpData.firstName" required
+               class="form-control" id="sign-up-first-name" placeholder="First name">
+        <div ng-show="form.firstName.$touched || form.$submitted" ng-cloak>
+            <div ng-show="form.firstName.$error.required">Tell us your name</div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': form.lastName.$invalid && (form.lastName.$touched || form.$submitted), 'has-success': form.lastName.$valid && (form.lastName.$touched || form.$submitted)}">
+        <label for="sign-up-last-name" class="control-label">Last name</label>
+        <input name="lastName" ng-model="signUpCtrl.signUpData.lastName" required
+               class="form-control" id="sign-up-last-name" placeholder="Last name">
+        <div ng-show="form.lastName.$touched || form.$submitted" ng-cloak>
+            <div ng-show="form.lastName.$error.required">Tell us your surname</div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': form.email.$invalid && (form.email.$touched || form.$submitted), 'has-success': form.email.$valid && (form.email.$touched || form.$submitted)}">
+        <label for="sign-up-email" class="control-label">Email address</label>
+        <input name="email" ng-model="signUpCtrl.signUpData.email" required
+               type="email" class="form-control" id="sign-up-email" placeholder="Email">
+        <div ng-show="form.email.$touched || form.$submitted" ng-cloak>
+            <div ng-show="form.email.$error.required">Tell us your email</div>
+            <div ng-show="form.email.$error.email">Email you entered is not valid</div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': form.phone.$invalid && (form.phone.$touched || form.$submitted), 'has-success': form.phone.$valid && (form.phone.$touched || form.$submitted)}">
+        <label for="sign-up-phone" class="control-label">Phone number</label>
+        <input name="phone" ng-model="signUpCtrl.signUpData.phone" pattern="^\d{2}-\d{2}-\d{2}-\d{2}-\d{2}$" required
+               class="form-control" id="sign-up-phone" placeholder="Phone number in the format: ##-##-##-##-##">
+        <div ng-show="form.phone.$touched || form.$submitted" ng-cloak>
+            <div ng-show="form.phone.$error.required">Tell us your phone number</div>
+            <div ng-show="form.phone.$error.pattern">Phone number is not valid. It must follow this pattern: 11-22-33-44-55</div>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': form.favDish.$invalid && (form.favDish.$touched || form.$submitted), 'has-success': form.favDish.$valid && (form.favDish.$touched || form.$submitted)}">
+        <label for="sign-up-fav-dish" class="control-label">Favorite dish</label>
+        <input name="favDish" ng-model="signUpCtrl.signUpData.favDish" required menu-item-check class="form-control"
+               id="sign-up-fav-dish" placeholder="Menu number of your favorite dish: A2, B1, C5, V4, NF10, etc.">
+        <div ng-show="form.favDish.$touched || form.$submitted" ng-cloak>
+            <div ng-show="form.favDish.$error.required">Tell us your favorite dish</div>
+            <div ng-show="form.favDish.$error.menuItemCheck">No such menu number exists</div>
+        </div>
+    </div>
+
+    <input type="submit" ng-click="signUpCtrl.signUp(form)" class="btn btn-default" value="Submit">
+</form>
+
+<div ng-show="signUpCtrl.saved" ng-cloak class="alert alert-info">
+    Your information has been saved <button class="btn btn-danger" ng-click="signUpCtrl.clearSignUp()">Remove it!</button>
+</div>
+</div>

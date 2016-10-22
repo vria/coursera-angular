@@ -1,0 +1,38 @@
+<div class="container">
+    <h2 class="text-center">My info</h2>
+
+    <div ng-hide="myInfoCtrl.myInfo" ng-cloak class="alert alert-info">
+        Not Signed Up Yet. <a ui-sref="public.sign-up">Sign up Now!</a>
+    </div>
+
+    <div ng-show="myInfoCtrl.myInfo" ng-cloak>
+        <div class="row">
+            <div class="col-xs-6 text-right">First name</div>
+            <div class="col-xs-6" ng-bind="myInfoCtrl.myInfo.firstName"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 text-right">Last name</div>
+            <div class="col-xs-6" ng-bind="myInfoCtrl.myInfo.lastName"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 text-right">Email address</div>
+            <div class="col-xs-6" ng-bind="myInfoCtrl.myInfo.email"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 text-right">Phone number</div>
+            <div class="col-xs-6" ng-bind="myInfoCtrl.myInfo.phone"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 text-right">Favorite dish</div>
+            <div class="col-xs-6">
+                <div ng-bind="myInfoCtrl.favDish.short_name"></div>
+                <div ng-bind="myInfoCtrl.favDish.name"></div>
+                <div ng-bind="myInfoCtrl.favDish.description"></div>
+                <div ng-if="myInfoCtrl.favDish.image_present" ng-cloak>
+                    <img ng-src="{{ myInfoCtrl.ApiPath + '/images/' + myInfoCtrl.favDish.short_name + '.jpg'}}" alt="No image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
